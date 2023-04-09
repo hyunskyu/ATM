@@ -1,5 +1,3 @@
-# Untitled
-
 # Bear_Robotics home project
 
 This is bear_robotics home project
