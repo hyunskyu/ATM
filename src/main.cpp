@@ -1,4 +1,5 @@
 #include "Account.h"
+
 #include <vector>
 #include <string>
 
@@ -9,6 +10,7 @@ bool card_check() //verify card input
 
 void test()
 {
+	
 	std::vector<Account> v_account; // Account vector
 	unsigned int select_menu = 0;
 	int num = 0;
@@ -23,7 +25,7 @@ void test()
 	Account person1("John");
 	Account person2("Mike");
 	Account person3("Sophia");
-	Account person;
+	Account* person = new Account;
 	person1.mpin = 10; // person1 pin number 
 	person2.mpin = 20; // person2 pin number
 	person3.mpin = 30; // person3 pin number
@@ -39,18 +41,22 @@ void test()
 	v_name.push_back(person1.GetName());
 	v_name.push_back(person2.GetName());
 	v_name.push_back(person3.GetName());
+	
 	/*
 *  ==========================================================================
 */
 	
-
+	//std::cout<<v_account[0].mid<<std::endl;
 	if (card_check()) {
 
+	
 		for (int i = 0; i < v_account.size(); i++)
 		{
 			if (_id == v_account[i].mid)
 			{
-				person = v_account[i];
+				
+				person = &v_account[i];
+				std::cout<<"in"<<std::endl;
 				num = i;
 				break;
 			}
@@ -61,7 +67,7 @@ void test()
 
 		std::cin >> pin;
 
-		if (person.mpin != pin)
+		if (person->mpin != pin)
 		{
 			std::cout << "Wrong pin number" << std::endl;
 			return;
@@ -74,6 +80,7 @@ void test()
 
 		while (1)
 		{
+			std::cout<<"--------------------------"<<std::endl;
 			std::cout << "Please select the menu" << std::endl;
 			std::cout << "1. Show money" << std::endl;
 			std::cout << "2. Deposit money" << std::endl;
@@ -84,14 +91,14 @@ void test()
 
 			if (select_menu == 1)
 			{
-				std::cout << "Money in account " << person.GetCash() << std::endl;
+				std::cout << "Money in account " << person->GetCash() << std::endl;
 			}
 			else if (select_menu == 2)
 			{
 				unsigned int d = 0;
 				std::cout << "How many deposit? " << std::endl;
 				std::cin >> d;
-				person.Deposit(d);
+				person->Deposit(d);
 			}
 
 			else if (select_menu == 3)
@@ -99,7 +106,7 @@ void test()
 				unsigned int w = 0;
 				std::cout << "How many deposit? " << std::endl;
 				std::cin >> w;
-				person.Withdrawal(w);
+				person->Withdrawal(w);
 			}
 			else if (select_menu == 4)
 			{
@@ -118,7 +125,7 @@ void test()
 
 }
 
-int main()
+int main(int argc, char *argv[])
 {
 	test();
 

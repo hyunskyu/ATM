@@ -1,4 +1,6 @@
 #include "Account.h"
+
+#include <string.h>
 #include <iostream>
 
 Account::Account()
@@ -93,4 +95,5 @@ Account::~Account() //Destructor
 {
 	delete[] mString;
 	delete mname;
+
 }
