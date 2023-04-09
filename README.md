@@ -1,4 +1,8 @@
-# ATM challenge
+# Untitled
+
+# Bear_Robotics home project
+
+This is bear_robotics home project
 
 # **Implement a simple ATM controller**
 
@@ -26,9 +30,7 @@ Please upload the code for this project to GitHub or anywhere, and post a link t
 
 ---
 
-# Bear_Robotics home project
-
-This is bear_robotics home project
+# How do I implementation
 
 ## Accounter
 
@@ -41,3 +43,22 @@ I made accounter DB and run the code for test. There are 3 people and they have 
 1. Show money → Show current cash in the account
 2. Deposit money → Deposit money
 3. Withdrawal money → Withdrawl money
+
+# How to run it
+
+Tested in **Ubuntu 20.04(Linux)**
+
+```bash
+git clone https://github.com/hyunskyu/ATM.git
+```
+
+```bash
+cd ./ATM //Or your own path
+mkdir build && cd build
+cmake ..
+make
+```
+
+```bash
+./ATM //run it
+```
